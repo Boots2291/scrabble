@@ -4,11 +4,17 @@ class Scrabble
   def score(word)
     letters = word.upcase.split("")
 
+    total_score = 0
     letters_score = []
     letters.each do |letter|
       letters_score << point_values.values_at(letter)
     end
-    letters_score.reduce.join.to_i
+    # binding.pry
+    letters_score.join.to_i
+    # letters_score.map do |letter|
+    #   binding.pry
+    #   total_score += letter.join.to_i.reduce
+    # end
   end
 
   def point_values
