@@ -1,7 +1,14 @@
+require 'pry'
 class Scrabble
 
   def score(word)
-    1
+    letters = word.upcase.split("")
+
+    total_score = 0
+    letters.each do |letter|
+      binding.pry
+      total_score += point_values.values_at(letter)
+    end
   end
 
   def point_values
