@@ -19,15 +19,18 @@ class Scrabble
   def score_with_multipliers(word, letter_multipliers, word_multiplier = 1)
     letters = word.upcase.split("")
     temp_scores = []
-    total_score = 0
+    if word.length > 6
+      total_score = 10
+    else
+      total_score = 0
+    end
     letters.each do |letter|
-      temp_scores << point_values[letter]
+    temp_scores << point_values[letter]
     end
     letter_multipliers.map.with_index do |number, index|
       total_score += number * temp_scores[index]
     end
-    total_score = total_score * word_multiplier
-    total_score
+    total_score * word_multiplier
   end
 
   def point_values
