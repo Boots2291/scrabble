@@ -15,6 +15,10 @@ class ScrabbleTest < Minitest::Test
     assert_equal 2, Scrabble.new.score("it")
   end
 
+  def test_it_can_score_more_letters
+    assert_equal 8, Scrabble.new.score("hello")
+    assert_equal 19, Scrabble.new.score("whimsical")
+  end
 
   def test_it_scores_empty_string_as_zero
     game = Scrabble.new
