@@ -2,20 +2,21 @@ require 'pry'
 class Scrabble
 
   def score(word)
-    if word != ""
+    if word == nil
+      total_score = 0
+    elsif word == ""
+      total_score = 0
+    else
       letters = word.upcase.split("")
       total_score = 0
-      letters_score = []
       letters.each do |letter|
         total_score += point_values[letter]
       end
-    else
-      total_score = 0
     end
     total_score
   end
 
-  def score_with_multipliers
+  def score_with_multipliers(word)
 
   end
 
