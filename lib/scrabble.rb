@@ -2,19 +2,21 @@ require 'pry'
 class Scrabble
 
   def score(word)
-    letters = word.upcase.split("")
-
-    total_score = 0
-    letters_score = []
-    letters.each do |letter|
-      letters_score << point_values.values_at(letter)
+    if word != ""
+      letters = word.upcase.split("")
+      total_score = 0
+      letters_score = []
+      letters.each do |letter|
+        total_score += point_values[letter]
+      end
+    else
+      total_score = 0
     end
-    # binding.pry
-    letters_score.join.to_i
-    # letters_score.map do |letter|
-    #   binding.pry
-    #   total_score += letter.join.to_i.reduce
-    # end
+    total_score
+  end
+
+  def score_with_multipliers
+
   end
 
   def point_values
